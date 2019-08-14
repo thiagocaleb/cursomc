@@ -1,9 +1,6 @@
 package com.thiagocaleb.cursomc.resources;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +13,7 @@ import com.thiagocaleb.cursomc.services.CategoriaService;
 
 @RestController
 @RequestMapping(value="/categorias")
-public class CategoriaResource implements CommandLineRunner {
+public class CategoriaResource {
 
 	@Autowired
 	private CategoriaService service;
@@ -30,11 +27,4 @@ public class CategoriaResource implements CommandLineRunner {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		Categoria cat1 = new Categoria(null, "Informatica");
-		Categoria cat2 = new Categoria(null, "Escritorio");
-		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
-		
-	}
 }
